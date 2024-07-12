@@ -1,4 +1,4 @@
-import { SEARCH_INPUT } from "../actions";
+import { HIPHOP, POP_CULTURE, ROCK_CLASSIC, SEARCH_INPUT } from "../actions";
 
 const initialState = {
   list1: [],
@@ -9,18 +9,18 @@ const initialState = {
 
 const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ROCK_CLASSIC":
+    case ROCK_CLASSIC:
       return {
         ...state,
         list1: action.payload,
       };
 
-    case "POP_CULTURE":
+    case POP_CULTURE:
       return {
         ...state,
         list2: action.payload,
       };
-    case "HIPHOP":
+    case HIPHOP:
       return {
         ...state,
         list3: action.payload,

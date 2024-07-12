@@ -1,34 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import RowSongs from "./RowSongs";
+import { useDispatch, useSelector } from "react-redux";
+import { getSongsAction, HIPHOP, POP_CULTURE, ROCK_CLASSIC } from "../redux/actions";
 
 const MyMain = () => {
-  const [artist1, setArtist1] = useState([]);
-  const [artist2, setArtist2] = useState([]);
-  const [artist3, setArtist3] = useState([]);
+  const dispatch = useDispatch();
+  const queen = useSelector(state => state.fetchResponse.list1);
+  const katyperry = useSelector(state => state.fetchResponse.list2);
+  const eminem = useSelector(state => state.fetchResponse.list3);
 
-  const fillMusicSection = async (artistName, setArtist) => {
-    try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + artistName);
-      if (response.ok) {
-        let { data } = await response.json();
-        const arrSongs = [];
-        for (let index = 0; index < 4; index++) {
-          arrSongs.push(data[index]);
-        }
-        setArtist(arrSongs);
-      } else {
-        throw new Error("Error in fetching songs");
-      }
-    } catch (err) {
-      console.log("error", err);
-    }
-  };
   useEffect(() => {
-    fillMusicSection("queen", setArtist1);
-    fillMusicSection("katyperry", setArtist2);
-    fillMusicSection("eminem", setArtist3);
+    dispatch(getSongsAction("queen", "homeDispatch", ROCK_CLASSIC ));
+    dispatch(getSongsAction("katyperry","homeDispatch", POP_CULTURE ));
+    dispatch(getSongsAction("eminem", "homeDispatch", HIPHOP));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -43,9 +30,9 @@ const MyMain = () => {
             <a href="#">DISCOVER</a>
           </Col>
         </Row>
-        <RowSongs artist={artist1} listName="Rock Classics" />
-        <RowSongs artist={artist2} listName="Pop Culture" />
-        <RowSongs artist={artist3} listName="#HipHop" />
+        <RowSongs artist={queen} listName="Rock Classics" />
+        <RowSongs artist={katyperry} listName="Pop Culture" />
+        <RowSongs artist={eminem} listName="#HipHop" />
       </Col>
     </main>
   );

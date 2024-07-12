@@ -2,7 +2,7 @@ import {  useState } from "react";
 import { Button, Col, Container, Form, InputGroup, Nav } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { changeInputValue, getSongsAction } from "../redux/actions";
+import { changeInputValue, getSongsAction, SEARCH_INPUT } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 // import { changeInputValue } from "../redux/actions";
 
@@ -47,7 +47,7 @@ const AsideBar = () => {
                     <Form onSubmit={(e)=>{ 
                         e.preventDefault();
                         dispatch(changeInputValue(searchInput))
-                        dispatch(getSongsAction(searchInput))
+                        dispatch(getSongsAction(searchInput, "searchDispatch", SEARCH_INPUT ))
                         navigate("/search/" + searchInput)  }}>
 
 
