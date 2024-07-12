@@ -1,13 +1,22 @@
+import {  useState } from "react";
 import { Button, Col, Container, Form, InputGroup, Nav } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { changeInputValue, getSongsAction } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
+// import { changeInputValue } from "../redux/actions";
 
 const AsideBar = () => {
+    const [searchInput, setSearchInput] = useState("")
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+ 
   return (
     <aside>
       <Col xs={2}>
         <Nav className="navbar navbar-expand-md fixed-left justify-content-between" id="sidebar">
           <Container className="flex-column align-items-start">
-            <a className="navbar-brand" href="index.html">
+            <a className="navbar-brand" href="/">
               <img src="src\assets\logo\logo.png" alt="Spotify Logo" width="131" height="40" />
             </a>
             <Button
@@ -25,7 +34,7 @@ const AsideBar = () => {
               <div className="navbar-nav">
                 <ul>
                   <li>
-                    <a className="nav-item nav-link d-flex align-items-center gap-3" href="#">
+                    <a className="nav-item nav-link d-flex align-items-center gap-3" href="/">
                       <HouseDoorFill className="fs-3" /> Home
                     </a>
                   </li>
@@ -35,12 +44,22 @@ const AsideBar = () => {
                     </a>
                   </li>
                   <li>
+                    <Form onSubmit={(e)=>{ 
+                        e.preventDefault();
+                        dispatch(changeInputValue(searchInput))
+                        dispatch(getSongsAction(searchInput))
+                        navigate("/search/" + searchInput)  }}>
+
+
                     <InputGroup  className=" mt-3">
-                      <Form.Control type="text"  placeholder="Search" aria-label="Search" />
+                      <Form.Control type="text"  placeholder="Search" aria-label="Search" value={searchInput} onChange={(e)=> {
+                        setSearchInput(e.target.value)
+                      }}/>
                       <div className="input-group-append">
                         <Button variant="outline-secondary" className="btn-sm h-100">GO</Button>
                       </div>
                     </InputGroup >
+                    </Form>
                   </li>
                 </ul>
               </div>

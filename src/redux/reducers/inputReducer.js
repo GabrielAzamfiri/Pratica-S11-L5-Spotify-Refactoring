@@ -1,15 +1,15 @@
-import { SELECT_SONG } from "../actions";
+import { CHANGE_INPUT_VALUE } from "../actions";
 
 const initialState = {
-  selectedSong: null,
+  inputValue: "",
 };
 
 const selectedSongReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_SONG:
+    case CHANGE_INPUT_VALUE:
       return {
         ...state,
-        selectedSong: action.payload,
+        inputValue: action.payload,
       };
 
     default:
