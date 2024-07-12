@@ -6,7 +6,7 @@ export const REMOVE_FROM_FAVORITE = "REMOVE_FROM_FAVORITE";
 
 export const selectSongAction = singleSong => ({ type: SELECT_SONG, payload: singleSong });
 export const changeInputValue = value => ({ type: CHANGE_INPUT_VALUE, payload: value });
-export const addToFavoriteAction = data => ({ type: ADD_TO_FAVORITE, payload: data });
+export const addToFavoriteAction = index => ({ type: ADD_TO_FAVORITE, payload: index });
 export const removeFromFavoriteAction = index => ({ type: REMOVE_FROM_FAVORITE, payload: index });
 
 export const getSongsAction = artistName => {

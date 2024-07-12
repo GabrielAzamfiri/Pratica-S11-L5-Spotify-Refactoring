@@ -1,37 +1,41 @@
 import { Col } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-// import { Heart, HeartFill } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
 
-import { selectSongAction } from "../redux/actions";
+
+import { addToFavoriteAction, selectSongAction } from "../redux/actions";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const Song = ({ singleSong }) => {
   const dispatch = useDispatch();
-  // const favorite = useSelector(state => state.addRemoveFavorite.content);
+  const favorite = useSelector(state => state.addRemoveFavorite.content);
 
-  // const isInFavorite = favorite.some(song => song.id === singleSong.id);
+  const isInFavorite = favorite?.some(songID => songID === singleSong.id);
 
   return (
     <Col
       className="text-center song py-2"
-      onClick={() => {
-        dispatch(selectSongAction(singleSong));
-      }}
+      
     >
-      <img className="img-fluid" src={singleSong.album.cover_medium} alt="track" />
+      <img className="img-fluid" src={singleSong.album.cover_medium} alt="track" onClick={() => {
+        dispatch(selectSongAction(singleSong));
+      }}/>
       <p>Track: {singleSong.title}</p>
-      <p>Artist: {singleSong.artist.name}</p>
-      {/* {isInFavorite ? (
+      <span>Artist: {singleSong.artist.name} </span>
+      <span className="ms-5">{isInFavorite ? (
           <HeartFill
-            
+            className="fs-3"
             fill="red"
           />
         ) : (
           <Heart
+           className="fs-3"
             onClick={() => {
-              dispatch(addToFavoriteAction(data));
+              dispatch(addToFavoriteAction(singleSong.id));
             }}
           />
-        )} */}
+        )}</span>
+   
+      
     </Col>
   );
 };
