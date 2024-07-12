@@ -17,7 +17,7 @@ const addRemoveFavoriteReducer = (state = initialState, action) => {
         ...state,
         // content: state.cart.content.slice(0, action.payload).concat(state.cart.content.slice(action.payload + 1))
         //   content: [...state.cart.content.slice(0, action.payload), ...state.cart.content.slice(action.payload + 1)]
-        content: state.content.filter((_, i) => i !== action.payload),
+        content: state.content.filter(i => i !== action.payload),
         // ❌ da non usare assolutamente metodi che mutano: es. splice!
       };
 

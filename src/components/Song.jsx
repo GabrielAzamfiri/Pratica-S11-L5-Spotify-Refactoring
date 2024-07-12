@@ -1,8 +1,6 @@
 import { Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-
-
-import { addToFavoriteAction, selectSongAction } from "../redux/actions";
+import { addToFavoriteAction, removeFromFavoriteAction, selectSongAction } from "../redux/actions";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const Song = ({ singleSong }) => {
@@ -25,6 +23,9 @@ const Song = ({ singleSong }) => {
           <HeartFill
             className="fs-3"
             fill="red"
+            onClick={() => {
+              dispatch(removeFromFavoriteAction(singleSong.id));
+            }}
           />
         ) : (
           <Heart
