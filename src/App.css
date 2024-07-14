@@ -80,7 +80,7 @@ ul {
   background-color: white;
 }
 
-@media screen and (max-width: 936px) {
+@media screen and (max-width: 992px) {
   #sidebar {
     display: none;
   }

@@ -4,7 +4,7 @@ import Song from "./Song";
 const RowSongs = ({artist, listName})=>{
 
     return(
-        <Row>
+        <Row className="d-flex justify-content-center">
         <Col
          xs={10} >
           <div id="rock">

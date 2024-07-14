@@ -2,7 +2,7 @@ import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Song from "./Song";
 
-const YourtLibrary = ()=>{
+const YourLibrary = ()=>{
   const myList = useSelector(state => state.addRemoveList.list);
 
     return (
@@ -17,4 +17,4 @@ const YourtLibrary = ()=>{
     )
 }
 
-export default YourtLibrary;
+export default YourLibrary;

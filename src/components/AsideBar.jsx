@@ -56,7 +56,7 @@ const AsideBar = () => {
                         setSearchInput(e.target.value)
                       }}/>
                       <div className="input-group-append">
-                        <Button variant="outline-secondary" className="btn-sm h-100">GO</Button>
+                        <Button type="submit" variant="outline-secondary" className="btn-sm h-100">GO</Button>
                       </div>
                     </InputGroup >
                     </Form>

@@ -7,9 +7,9 @@ const MyPlayer = () => {
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
       <Row className="h-100">
-        <Col lg={10} className="offset-lg-2">
+        <Col lg={10} className="offset-lg-2 ">
           <Row className={selected ? "h-100  justify-content-start align-items-center" : "h-100  justify-content-center align-items-center"}>
-            {selected && <Col xs={4} className="text-white d-flex align-items-center">
+            {selected && <Col xs={4} className="text-white d-flex align-items-center ms-5">
             
                <img className="img-fluid me-3" src={selected.album.cover_medium} alt="track" width={80} />
                 <p className="text-truncate">{selected.title}</p>

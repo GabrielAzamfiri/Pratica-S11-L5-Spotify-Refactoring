@@ -12,7 +12,7 @@ const Song = ({ singleSong }) => {
   const isInList = list?.some(song => song.id === singleSong.id);
 
   return (
-    <Col className="text-center song py-2">
+    <Col className="text-center song py-3">
       <img
         className="img-fluid"
         src={singleSong.album.cover_medium}
@@ -24,7 +24,7 @@ const Song = ({ singleSong }) => {
 
       <p>Track: {singleSong.title}</p>
       <Row className="justify-content-center">
-        <Col xs={10} className="mb-2">
+        <Col xs={12} className="mb-2">
           <span>Artist: {singleSong.artist.name} </span>
         </Col>
         <Col className="d-flex justify-content-center">

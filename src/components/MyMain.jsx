@@ -19,17 +19,17 @@ const MyMain = () => {
   }, []);
 
   return (
-    <main>
-      <Col xs={12} md={9} className="offset-md-3 mainPage pb-5 mb-5">
-        <Row>
-          <Col xs={9} lg={11} className=" mainLinks d-none d-md-flex">
+    <main className="d-flex justify-content-center">
+      <Col xs={12} md={9} className="offset-lg-2 mainPage pb-5 mb-5">
+        <Row className="d-flex justify-content-center">
+          <Col xs={12} lg={11} className=" mainLinks d-none d-md-flex">
             <a href="#">TRENDING</a>
             <a href="#">PODCAST</a>
             <a href="#">MOODS AND GENRES</a>
             <a href="#">NEW RELEASES</a>
             <a href="#">DISCOVER</a>
           </Col>
-        </Row>
+        </Row  >
         <RowSongs artist={queen} listName="Rock Classics" />
         <RowSongs artist={katyperry} listName="Pop Culture" />
         <RowSongs artist={eminem} listName="#HipHop" />
