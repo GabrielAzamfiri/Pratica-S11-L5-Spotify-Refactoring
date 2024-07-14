@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, InputGroup, Nav } from "react-bootstrap";
 import { BookFill, HouseDoorFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { changeInputValue, getSongsAction, SEARCH_INPUT } from "../redux/actions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { changeInputValue } from "../redux/actions";
 
 const AsideBar = () => {
@@ -34,14 +34,14 @@ const AsideBar = () => {
               <div className="navbar-nav">
                 <ul>
                   <li>
-                    <a className="nav-item nav-link d-flex align-items-center gap-3" href="/">
+                    <Link to="/" className="nav-item nav-link d-flex align-items-center gap-3">
                       <HouseDoorFill className="fs-3" /> Home
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="nav-item nav-link d-flex align-items-center  gap-3" href="#">
+                    <Link to="/Library" className="nav-item nav-link d-flex align-items-center  gap-3" >
                       <BookFill className="fs-3" /> Your Library
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Form onSubmit={(e)=>{ 

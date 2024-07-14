@@ -6,11 +6,15 @@ export const POP_CULTURE = "POP_CULTURE";
 export const HIPHOP = "HIPHOP";
 export const ADD_TO_FAVORITE = "ADD_TO_FAVORITE";
 export const REMOVE_FROM_FAVORITE = "REMOVE_FROM_FAVORITE";
+export const REMOVE_FROM_LIST = "REMOVE_FROM_LIST";
+export const ADD_TO_LIST = "ADD_TO_LIST";
 
 export const selectSongAction = singleSong => ({ type: SELECT_SONG, payload: singleSong });
 export const changeInputValue = value => ({ type: CHANGE_INPUT_VALUE, payload: value });
 export const addToFavoriteAction = index => ({ type: ADD_TO_FAVORITE, payload: index });
 export const removeFromFavoriteAction = index => ({ type: REMOVE_FROM_FAVORITE, payload: index });
+export const removeFromListAction = data => ({ type: REMOVE_FROM_LIST, payload: data });
+export const addToListAction = data => ({ type: ADD_TO_LIST, payload: data });
 
 export const getSongsAction = (artistName, actionType, typeDispatch) => {
   return async (dispatch, getState) => {
